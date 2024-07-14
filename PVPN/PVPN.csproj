@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include=".github\workflow\github-ci.yml" />
+      <Content Include=".github\workflows\github-ci.yml" />
     </ItemGroup>
     
 </Project>
