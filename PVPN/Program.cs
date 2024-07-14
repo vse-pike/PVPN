@@ -35,6 +35,7 @@ builder.Services.AddScoped<IUpdateHandler, UpdateHandler>();
 builder.Services.AddScoped<CommandContainer>();
 builder.Services.AddScoped<StartCommand>();
 builder.Services.AddScoped<PayCommand>();
+builder.Services.AddScoped<AddAccessCommand>();
 
 var app = builder.Build();
 

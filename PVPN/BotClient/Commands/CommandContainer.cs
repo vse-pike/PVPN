@@ -7,13 +7,15 @@ public class CommandContainer
     
     public CommandContainer(
         StartCommand startCommand,
-        PayCommand payCommand
+        PayCommand payCommand,
+        AddAccessCommand accessCommand
     ) {
 
         _commandMap = new Dictionary<string, ICommand>
         {
             { "start", startCommand },
-            { "pay", payCommand }
+            { "pay", payCommand },
+            { "access", accessCommand},
         };
 
         _unknownCommand = new UnknownCommand();

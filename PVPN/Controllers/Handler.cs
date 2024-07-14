@@ -36,24 +36,19 @@ public class Handler : IHandler
     {
         Process process = new Process();
 
-        // set the process start info
-        process.StartInfo.FileName = "add_vpn_access.sh"; // specify the command to run
-        process.StartInfo.Arguments = $"{telegramId} {port} {password}";
+        process.StartInfo.FileName = "add_shadowsocks_user.sh";
+        process.StartInfo.Arguments = $"{telegramId} {password} {port}";
+        Console.WriteLine($"{telegramId}:{password}:{port}");
 
-        // set additional process start info as necessary
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardOutput = true;
 
-        // start the process
         process.Start();
 
-        // read the output from the command
         string output = await process.StandardOutput.ReadToEndAsync();
 
-        // wait for the process to exit
         await process.WaitForExitAsync();
 
-        // print the output
         Console.WriteLine(output);
     }
 
@@ -61,24 +56,18 @@ public class Handler : IHandler
     {
         Process process = new Process();
 
-        // set the process start info
-        process.StartInfo.FileName = "revoke_vpn_access.sh"; // specify the command to run
+        process.StartInfo.FileName = "revoke_shadowsocks_user.sh";
         process.StartInfo.Arguments = $"{telegramId}";
 
-        // set additional process start info as necessary
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardOutput = true;
 
-        // start the process
         process.Start();
 
-        // read the output from the command
         string output = await process.StandardOutput.ReadToEndAsync();
 
-        // wait for the process to exit
         await process.WaitForExitAsync();
 
-        // print the output
         Console.WriteLine(output);
     }
 }
